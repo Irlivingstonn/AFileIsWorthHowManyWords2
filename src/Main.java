@@ -14,12 +14,29 @@ import java.io.IOException;  // Import the IOException class to handle errors
 public class Main {
 
     // Getting File Input Function
-    public static String getting_file_input(String prompt, Scanner scanner){
+    public static String getting_file_name(String prompt, Scanner scanner){
+
+        // Prompts User and Gets Input
+        System.out.print(prompt);
+        String file_name = scanner.nextLine();
+
+        // Gets Rid of ".txt" if user inputs it
+        if ((file_name.substring(file_name.length() - 4)).equals(".txt")){
+            return file_name.substring(0, file_name.length() - 4);
+        }
+        else{
+            return file_name;
+        }
+
+    }
+
+    // Getting File Content Function
+    public static String getting_file_content(String prompt, Scanner scanner){
 
         // Prompts User
         System.out.print(prompt);
 
-        // Returns Output
+        // Returns Input
         return scanner.nextLine();
 
     }
@@ -28,6 +45,7 @@ public class Main {
     public static File writeText(String filename, String s){
         // Declares File
         File new_file = new File(filename + ".txt");
+
 
         // Tries to Create and Write to File
         try{
@@ -104,8 +122,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         // -------------- INPUT --------------
-        String name_of_file = getting_file_input("What is the name of the file? ", scanner);
-        String content_in_file = getting_file_input("What would you like to print to the file? ", scanner);
+        String name_of_file = getting_file_name("What is the name of the file? ", scanner);
+        String content_in_file = getting_file_content("What would you like to print to the file? ", scanner);
 
         // -------------- PROCESSING --------------
         File new_file = writeText(name_of_file, content_in_file);
