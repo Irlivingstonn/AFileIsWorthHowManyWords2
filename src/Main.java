@@ -1,14 +1,15 @@
 // Name: Isabella Livingston
-// Date:
-// Description:
+// Date: 16 October 2022
+// Description: User Enters in the File Name and Content
+//              The Program prints the name and number of words in file
 
 // Importing Assets
+import java.util.Scanner;
+import java.io.File;
+import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.PrintWriter;
-import java.util.Scanner;
-import java.io.File;  // Import the File class
-import java.io.IOException;  // Import the IOException class to handle errors
 
 // Main Project
 public class Main {
@@ -21,7 +22,7 @@ public class Main {
         String file_name = scanner.nextLine();
 
         // Gets Rid of ".txt" if user inputs it
-        if ((file_name.substring(file_name.length() - 4)).equals(".txt")){
+        if ((file_name).endsWith(".txt")){
             return file_name.substring(0, file_name.length() - 4);
         }
         else{
